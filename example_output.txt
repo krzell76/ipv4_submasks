@@ -1,0 +1,31 @@
+ make -s
+ ./main
+    dump
+address_ip: 52.0.0.0/8
+    add 34000000 8
+address_ip: 80.0.0.0/5
+    add 50000000 5
+address_ip: 160.0.0.0/4
+    add a0000000 4
+address_ip: 12.255.255.28/30
+    add cffff1c 30
+address_ip: 57.255.0.0/16
+    add 39ff0000 16
+    dump
+12.255.255.28/30
+52.0.0.0/8
+57.255.0.0/16
+80.0.0.0/5
+160.0.0.0/4
+    check
+found - as expected 4
+address_ip: 160.0.0.0/4
+remove_subnet_mask a0000000 4
+    del a0000000, 4
+    dump
+12.255.255.28/30
+52.0.0.0/8
+57.255.0.0/16
+80.0.0.0/5
+    check
+not found - as expected
